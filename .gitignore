@@ -5,6 +5,7 @@ erl_crash.dump
 
 # Generated site output
 /dist
+/static/style.css
 
 # Environment variables
 .env

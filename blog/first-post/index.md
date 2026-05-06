@@ -12,7 +12,7 @@ This site is generated with **Blogatto** and uses **Lustre** for the static page
 
 - Update `src/me/site.gleam` to change your routes and layout.
 - Add more posts under `blog/`.
-- Adjust `static/style.css` to change the presentation.
+- Adjust `styles/site.css` to change the presentation, then rebuild the generated stylesheet.
 
 ## Build
 

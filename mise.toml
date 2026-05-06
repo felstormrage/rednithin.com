@@ -6,7 +6,7 @@ rebar = "3.27.0"
 
 [tasks.css]
 description = "Build the Tailwind stylesheet"
-run = "npx tailwindcss -i static/style.input.css -o static/style.css"
+run = "npx tailwindcss -i styles/site.css -o static/style.css"
 
 [tasks.build]
 description = "Build stylesheet and generate the static site"
