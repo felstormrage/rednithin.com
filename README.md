@@ -24,9 +24,11 @@ static/
 ## Commands
 
 ```sh
-gleam run   # Build the static site into ./dist
-gleam dev   # Start the Blogatto dev server with live reload
-gleam test  # Run the test suite
+mise trust        # Trust the repo's mise.toml once
+mise install      # Install pinned Node, Erlang, Gleam, and Rebar
+mise run build    # Build Tailwind CSS and generate the static site into ./dist
+mise run dev      # Start the Blogatto dev server with live reload
+mise run test     # Run tests and format checks
 ```
 
 ## Customisation
@@ -39,7 +41,6 @@ gleam test  # Run the test suite
 ## Development
 
 ```sh
-gleam format
-gleam run
-gleam test
+mise run build
+mise run test
 ```
