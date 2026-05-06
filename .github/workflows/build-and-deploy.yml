@@ -22,11 +22,12 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Gleam
-        run: curl https://gleam.run/install.sh -sf | sh
-
-      - name: Add Gleam to PATH
-        run: echo "$HOME/.gleam/bin" >> $GITHUB_PATH
+      - name: Install Gleam and Erlang
+        uses: erlef/setup-beam@v1
+        with:
+          otp-version: '28'
+          gleam-version: '1.16.0'
+          rebar3-version: '3'
 
       - name: Install dependencies
         run: npm install
