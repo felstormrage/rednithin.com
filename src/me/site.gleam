@@ -9,7 +9,7 @@ import lustre/attribute
 import lustre/element.{type Element}
 import lustre/element/html
 
-const site_url = "https://example.com"
+const site_url = "https://felstormrage.github.io/me"
 
 pub fn config() -> config.Config(Nil) {
   let md_config =
