@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Uncut+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0 0% 99%);
+  --foreground: hsl(210 25% 23%);
+  --card: hsl(180 6% 97%);
+  --card-foreground: hsl(210 25% 7%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(210 25% 7%);
+  --primary: hsl(210 88% 53%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(210 25% 7%);
+  --secondary-foreground: hsl(0 0% 100%);
+  --muted: hsl(240 8% 92%);
+  --muted-foreground: hsl(210 15% 60%);
+  --accent: hsl(211 51% 82%);
+  --accent-foreground: hsl(203 88% 53%);
+  --border: hsl(201 30% 88%);
+  --input: hsl(200 23% 92%);
+  --ring: hsl(210 89% 53%);
+}
+
+.dark {
+  --background: hsl(210 20% 6.8431%);
+  --foreground: hsl(210 15% 90%);
+  --card: hsl(210 20% 11%);
+  --card-foreground: hsl(210 15% 92%);
+  --popover: hsl(210 25% 9%);
+  --popover-foreground: hsl(210 15% 92%);
+  --primary: hsl(210 88.2845% 58%);
+  --primary-foreground: hsl(210 25% 7.8431%);
+  --secondary: hsl(210 15% 20%);
+  --secondary-foreground: hsl(210 15% 85%);
+  --muted: hsl(210 20% 15%);
+  --muted-foreground: hsl(210 15% 75%);
+  --accent: hsl(210 25% 16%);
+  --accent-foreground: hsl(210 88.2845% 68%);
+  --border: hsl(210 20% 18%);
+  --input: hsl(210 20% 13%);
+  --ring: hsl(210 88.2845% 58%);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans, system-ui, sans-serif);
+  }
+}
+
+@layer components {
+  .link {
+    @apply text-muted-foreground relative inline w-fit rounded py-0.5 transition-colors;
+    position: relative;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .link:hover {
+    color: var(--foreground);
+    border-bottom-color: var(--muted);
+  }
+}
+
+section {
+  display: grid;
+  gap: 2.5rem;
+}
+
+@media (width >= 40rem) {
+  section {
+    gap: 1rem;
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+.container {
+  margin-inline: auto;
+  padding: 0 1rem;
+}
+
+@media (width >= 40rem) {
+  .container {
+    max-width: 60rem;
+  }
+}

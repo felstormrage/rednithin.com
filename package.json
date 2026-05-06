@@ -1,0 +1,29 @@
+{
+  "name": "me",
+  "version": "1.0.0",
+  "description": "[![Package Version](https://img.shields.io/hexpm/v/me)](https://hex.pm/packages/me) [![Hex Docs](https://img.shields.io/badge/hex-docs-ffaff3)](https://hexdocs.pm/me/)",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felstormrage/me.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/felstormrage/me/issues"
+  },
+  "homepage": "https://github.com/felstormrage/me#readme",
+  "dependencies": {
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.4.1"
+  }
+}
