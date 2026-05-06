@@ -9,6 +9,7 @@ import lustre/element.{type Element}
 import lustre/element/html
 
 const site_base_path = ""
+
 const site_url = "https://rednithin.com"
 
 fn site_path(path: String) -> String {
@@ -44,11 +45,11 @@ pub fn config() -> config.Config(Nil) {
 
 // Home page with hero and experience
 fn home_view(_posts: List(Post(Nil))) -> Element(Nil) {
-  page_layout(title: "P G Nithin Reddy", page_title: "", body: [
+  page_layout(title: "Nithin Reddy", page_title: "", body: [
     html.section([attribute.class("")], [
       html.div([], [
         html.h3([attribute.class("text-lg font-bold")], [
-          html.text("P G Nithin Reddy"),
+          html.text("Nithin Reddy"),
         ]),
         html.p([attribute.class("text-muted-foreground leading-none")], [
           html.text("Full Stack Web Developer"),
@@ -60,35 +61,34 @@ fn home_view(_posts: List(Post(Nil))) -> Element(Nil) {
         ),
         html.br([]),
         html.br([]),
-        html.text("I solve business problems with clean code and thoughtful design. My "),
-        html.a([attribute.href(site_path("/projects")), attribute.class("link")], [
-          html.text("projects"),
-        ]),
+        html.text(
+          "I solve business problems with clean code and thoughtful design. My ",
+        ),
+        html.a(
+          [attribute.href(site_path("/projects")), attribute.class("link")],
+          [
+            html.text("projects"),
+          ],
+        ),
         html.text(
           " are focused on user experience, scalability, and building products that matter.",
         ),
         html.br([]),
         html.br([]),
-        html.text("Currently, I'm building products and helping teams scale their ideas. "),
+        html.text(
+          "Currently, I'm building products and helping teams scale their ideas. ",
+        ),
         html.text("Let's work together!"),
       ]),
     ]),
     html.div([attribute.class("")], []),
     html.section([], [
-      html.h4([attribute.class("text-base font-bold")], [html.text("Experience")]),
+      html.h4([attribute.class("text-base font-bold")], [
+        html.text("Experience"),
+      ]),
       html.div([attribute.class("space-y-6")], [
-        experience_item(
-          "SDE-II",
-          "Durianpay",
-          "Dec 2021 - Jan 2023",
-          "Remote",
-        ),
-        experience_item(
-          "SDE-II",
-          "Instamojo",
-          "Jan 2019 - Dec 2021",
-          "Remote",
-        ),
+        experience_item("SDE-II", "Durianpay", "Dec 2021 - Jan 2023", "Remote"),
+        experience_item("SDE-II", "Instamojo", "Jan 2019 - Dec 2021", "Remote"),
         experience_item(
           "SDE Intern",
           "Mediatek",
@@ -135,16 +135,8 @@ fn projects_view(_posts: List(Post(Nil))) -> Element(Nil) {
         "Infrastructure and payments",
         2021,
       ),
-      project_item(
-        "Instamojo Storefront",
-        "E-commerce platform",
-        2019,
-      ),
-      project_item(
-        "initthyself",
-        "SaaS product for creators",
-        2023,
-      ),
+      project_item("Instamojo Storefront", "E-commerce platform", 2019),
+      project_item("initthyself", "SaaS product for creators", 2023),
     ]),
   ])
 }
@@ -180,17 +172,31 @@ fn experience_item(
   date: String,
   location: String,
 ) -> Element(Nil) {
-  html.div([attribute.class("flex flex-col justify-between gap-2 sm:flex-row-reverse sm:gap-4")], [
-    html.p([attribute.class("text-sm sm:text-muted-foreground text-muted-foreground/70")], [
-      html.text(date),
-    ]),
-    html.div([], [
-      html.p([], [html.text(role)]),
-      html.p([attribute.class("text-muted-foreground")], [
-        html.text(company <> " - " <> location),
+  html.div(
+    [
+      attribute.class(
+        "flex flex-col justify-between gap-2 sm:flex-row-reverse sm:gap-4",
+      ),
+    ],
+    [
+      html.p(
+        [
+          attribute.class(
+            "text-sm sm:text-muted-foreground text-muted-foreground/70",
+          ),
+        ],
+        [
+          html.text(date),
+        ],
+      ),
+      html.div([], [
+        html.p([], [html.text(role)]),
+        html.p([attribute.class("text-muted-foreground")], [
+          html.text(company <> " - " <> location),
+        ]),
       ]),
-    ]),
-  ])
+    ],
+  )
 }
 
 fn writing_item(
@@ -199,34 +205,59 @@ fn writing_item(
   date: String,
   category: String,
 ) -> Element(Nil) {
-  html.div([attribute.class("flex flex-col-reverse items-start justify-between gap-2 sm:flex-row")], [
-    html.div([attribute.class("")], [
-      html.a([attribute.href("#"), attribute.class("w-fit")], [
-        html.p([], [html.text(title)]),
+  html.div(
+    [
+      attribute.class(
+        "flex flex-col-reverse items-start justify-between gap-2 sm:flex-row",
+      ),
+    ],
+    [
+      html.div([attribute.class("")], [
+        html.a([attribute.href("#"), attribute.class("w-fit")], [
+          html.p([], [html.text(title)]),
+        ]),
+        html.p([attribute.class("text-sm text-muted-foreground")], [
+          html.text(date),
+        ]),
       ]),
-      html.p([attribute.class("text-sm text-muted-foreground")], [html.text(date)]),
-    ]),
-    html.div([attribute.class("hidden h-6 grow items-center sm:flex")], [
-      html.span([attribute.class("bg-border/40 h-px w-full")], []),
-    ]),
-    html.span([attribute.class("text-xs border border-border rounded px-2 py-1")], [
-      html.text(category),
-    ]),
-  ])
+      html.div([attribute.class("hidden h-6 grow items-center sm:flex")], [
+        html.span([attribute.class("bg-border/40 h-px w-full")], []),
+      ]),
+      html.span(
+        [attribute.class("text-xs border border-border rounded px-2 py-1")],
+        [
+          html.text(category),
+        ],
+      ),
+    ],
+  )
 }
 
 fn project_item(title: String, description: String, year: Int) -> Element(Nil) {
   html.div([attribute.class("relative flex flex-col gap-6 lg:flex-row")], [
     html.a(
-      [attribute.href("#"), attribute.class("group top-20 h-fit lg:sticky lg:flex-1")],
+      [
+        attribute.href("#"),
+        attribute.class("group top-20 h-fit lg:sticky lg:flex-1"),
+      ],
       [
         html.div([attribute.class("bg-muted rounded-md aspect-video")], []),
-        html.div([attribute.class("mt-2 flex items-center justify-between gap-2")], [
-          html.h4([attribute.class("text-base font-bold")], [html.text(title)]),
-          html.p([attribute.class("text-muted-foreground lg:opacity-0 group-hover:lg:opacity-100")], [
-            html.text("Case study →"),
-          ]),
-        ]),
+        html.div(
+          [attribute.class("mt-2 flex items-center justify-between gap-2")],
+          [
+            html.h4([attribute.class("text-base font-bold")], [html.text(title)]),
+            html.p(
+              [
+                attribute.class(
+                  "text-muted-foreground lg:opacity-0 group-hover:lg:opacity-100",
+                ),
+              ],
+              [
+                html.text("Case study →"),
+              ],
+            ),
+          ],
+        ),
       ],
     ),
     html.div([attribute.class("lg:flex-1")], [
@@ -238,15 +269,28 @@ fn project_item(title: String, description: String, year: Int) -> Element(Nil) {
   ])
 }
 
-fn snippet_item(title: String, description: String, language: String) -> Element(Nil) {
+fn snippet_item(
+  title: String,
+  description: String,
+  language: String,
+) -> Element(Nil) {
   html.a([attribute.href("#"), attribute.class("block group")], [
-    html.div([attribute.class("flex flex-col justify-between gap-2 sm:flex-row")], [
-      html.div([], [
-        html.p([attribute.class("font-medium group-hover:text-primary")], [html.text(title)]),
-        html.p([attribute.class("text-sm text-muted-foreground")], [html.text(description)]),
-      ]),
-      html.span([attribute.class("text-xs text-muted-foreground")], [html.text(language)]),
-    ]),
+    html.div(
+      [attribute.class("flex flex-col justify-between gap-2 sm:flex-row")],
+      [
+        html.div([], [
+          html.p([attribute.class("font-medium group-hover:text-primary")], [
+            html.text(title),
+          ]),
+          html.p([attribute.class("text-sm text-muted-foreground")], [
+            html.text(description),
+          ]),
+        ]),
+        html.span([attribute.class("text-xs text-muted-foreground")], [
+          html.text(language),
+        ]),
+      ],
+    ),
   ])
 }
 
@@ -269,49 +313,90 @@ fn page_layout(
       ]),
     ]),
     html.body([attribute.class("bg-background text-foreground")], [
-      html.div([attribute.class("container flex min-h-dvh flex-col gap-20 px-4 py-10 2xl:px-12")], [
+      html.div([attribute.class("container page-shell")], [
         // Header with navigation
         html.header(
-          [attribute.class("flex flex-wrap items-center justify-between gap-x-20 gap-y-4")],
+          [
+            attribute.class(
+              "flex flex-wrap items-center justify-between gap-x-20 gap-y-4",
+            ),
+          ],
           [
             html.div([attribute.class("flex items-center gap-2")], [
-              html.a([attribute.href(site_path("/")), attribute.class("relative")], [
-                html.img([
-                  attribute.src("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect width='28' height='28' fill='%23333'/%3E%3C/svg%3E"),
-                  attribute.alt("Profile"),
-                  attribute.class("rounded-sm"),
-                  attribute.width(28),
-                  attribute.height(28),
-                ]),
-              ]),
+              html.a(
+                [attribute.href(site_path("/")), attribute.class("relative")],
+                [
+                  html.img([
+                    attribute.src(
+                      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect width='28' height='28' fill='%23333'/%3E%3C/svg%3E",
+                    ),
+                    attribute.alt("Profile"),
+                    attribute.class("rounded-sm"),
+                    attribute.width(28),
+                    attribute.height(28),
+                  ]),
+                ],
+              ),
             ]),
-            html.nav([attribute.class("flex w-full max-w-sm justify-between gap-5 text-sm sm:w-fit")], [
-              html.a([attribute.href(site_path("/")), attribute.class("link w-fit")], [
-                html.text("Index"),
-              ]),
-              html.a([attribute.href(site_path("/writing")), attribute.class("link w-fit")], [
-                html.text("Writing"),
-              ]),
-              html.a([attribute.href(site_path("/projects")), attribute.class("link w-fit")], [
-                html.text("Projects"),
-              ]),
-              html.a([attribute.href(site_path("/snippets")), attribute.class("link w-fit")], [
-                html.text("Snippets"),
-              ]),
-            ]),
+            html.nav(
+              [
+                attribute.class(
+                  "flex w-full max-w-sm justify-between gap-5 text-sm sm:w-fit",
+                ),
+              ],
+              [
+                html.a(
+                  [
+                    attribute.href(site_path("/")),
+                    attribute.class("link w-fit"),
+                  ],
+                  [
+                    html.text("Index"),
+                  ],
+                ),
+                html.a(
+                  [
+                    attribute.href(site_path("/writing")),
+                    attribute.class("link w-fit"),
+                  ],
+                  [
+                    html.text("Writing"),
+                  ],
+                ),
+                html.a(
+                  [
+                    attribute.href(site_path("/projects")),
+                    attribute.class("link w-fit"),
+                  ],
+                  [
+                    html.text("Projects"),
+                  ],
+                ),
+                html.a(
+                  [
+                    attribute.href(site_path("/snippets")),
+                    attribute.class("link w-fit"),
+                  ],
+                  [
+                    html.text("Snippets"),
+                  ],
+                ),
+              ],
+            ),
           ],
         ),
         // Main content
         html.main([attribute.class("flex flex-1 flex-col gap-12")], body),
         // Footer
-        html.footer(
-          [attribute.class("flex flex-wrap items-center justify-between gap-x-4")],
-          [
-            html.p([attribute.class("text-muted-foreground text-sm")], [
-              html.text("Bangalore, IN"),
-            ]),
-          ],
-        ),
+        html.footer([attribute.class("site-footer")], [
+          html.p([attribute.class("site-time text-sm")], [
+            html.text("IST --:--"),
+          ]),
+          html.p([attribute.class("text-muted-foreground text-sm")], [
+            html.text("Bangalore, IN"),
+          ]),
+        ]),
+        html.script([attribute.src(site_path("/clock.js"))], ""),
       ]),
     ]),
   ])
