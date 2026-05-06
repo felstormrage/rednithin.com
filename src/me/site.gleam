@@ -4,13 +4,12 @@ import blogatto/config/robots
 import blogatto/config/sitemap
 import blogatto/post.{type Post}
 import gleam/int
-import gleam/list
 import lustre/attribute
 import lustre/element.{type Element}
 import lustre/element/html
 
-const site_base_path = "/rednithin.com"
-const site_url = "https://felstormrage.github.io/rednithin.com"
+const site_base_path = ""
+const site_url = "https://rednithin.com"
 
 fn site_path(path: String) -> String {
   site_base_path <> path
