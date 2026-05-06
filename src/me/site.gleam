@@ -9,7 +9,12 @@ import lustre/attribute
 import lustre/element.{type Element}
 import lustre/element/html
 
-const site_url = "https://felstormrage.github.io/me"
+const site_base_path = "/rednithin.com"
+const site_url = "https://felstormrage.github.io/rednithin.com"
+
+fn site_path(path: String) -> String {
+  site_base_path <> path
+}
 
 pub fn config() -> config.Config(Nil) {
   let md_config =
@@ -57,7 +62,7 @@ fn home_view(_posts: List(Post(Nil))) -> Element(Nil) {
         html.br([]),
         html.br([]),
         html.text("I solve business problems with clean code and thoughtful design. My "),
-        html.a([attribute.href("/projects"), attribute.class("link")], [
+        html.a([attribute.href(site_path("/projects")), attribute.class("link")], [
           html.text("projects"),
         ]),
         html.text(
@@ -261,7 +266,7 @@ fn page_layout(
       html.title([], title),
       html.link([
         attribute.rel("stylesheet"),
-        attribute.href("/style.css"),
+        attribute.href(site_path("/style.css")),
       ]),
     ]),
     html.body([attribute.class("bg-background text-foreground")], [
@@ -271,7 +276,7 @@ fn page_layout(
           [attribute.class("flex flex-wrap items-center justify-between gap-x-20 gap-y-4")],
           [
             html.div([attribute.class("flex items-center gap-2")], [
-              html.a([attribute.href("/"), attribute.class("relative")], [
+              html.a([attribute.href(site_path("/")), attribute.class("relative")], [
                 html.img([
                   attribute.src("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect width='28' height='28' fill='%23333'/%3E%3C/svg%3E"),
                   attribute.alt("Profile"),
@@ -282,16 +287,16 @@ fn page_layout(
               ]),
             ]),
             html.nav([attribute.class("flex w-full max-w-sm justify-between gap-5 text-sm sm:w-fit")], [
-              html.a([attribute.href("/"), attribute.class("link w-fit")], [
+              html.a([attribute.href(site_path("/")), attribute.class("link w-fit")], [
                 html.text("Index"),
               ]),
-              html.a([attribute.href("/writing"), attribute.class("link w-fit")], [
+              html.a([attribute.href(site_path("/writing")), attribute.class("link w-fit")], [
                 html.text("Writing"),
               ]),
-              html.a([attribute.href("/projects"), attribute.class("link w-fit")], [
+              html.a([attribute.href(site_path("/projects")), attribute.class("link w-fit")], [
                 html.text("Projects"),
               ]),
-              html.a([attribute.href("/snippets"), attribute.class("link w-fit")], [
+              html.a([attribute.href(site_path("/snippets")), attribute.class("link w-fit")], [
                 html.text("Snippets"),
               ]),
             ]),
